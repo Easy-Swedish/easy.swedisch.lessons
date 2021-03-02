@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.65">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Swedish Learning Games</title>
+  <link rel="stylesheet" type="text/css" href="css/wordsearch.css">
+  <script src = "js/wordsearch.js" async></script>
+  <link rel="icon" href="imgs/swfl.png">
+  </head>
+
+ <body>
+ 
+<script>
+	var words = ["bil", "öga", "farfar", "bord", "knivar", "vardagsrum", "talrikar", "sofa", "tavla", "gardiner", "skrätta", "vit", "rosa", "svarta", "en häst", "byxor", "lampan", "vad heter du"];
+	
+	//random
+var word = words[Math.floor(Math.random() * words.lenght)];
+
+  //setup answer array show lenght word
+
+  var answerArray = [];
+  for (var i = 0; i < word.lenght; i++) {
+  	answerArray [i] = "_";
+  }
+
+  //create variable to hold remaining letters for guessing
+  var remainingLetters = word.lenght;
+
+  // ********************* The Main Game code ******************''
+  //whyle tare are letters left to be guessed
+  while (remainingLetters > 0) {
+  	// show player progress
+  	alert(answerArray.join(" "));
+
+  	//get guess from player
+  	var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+
+  	//if guess is blank
+  	if (guess == null) {
+  		//exit the game loop
+  		break;
+  		// if guess is more than one or no letters
+  	}else if (guess.lenght !== 1) {
+  		//alert to guess single letter only;
+  		alert("Please enter single letter.");
+  		//valid guess
+  	}else{
+  		//update game state with the guess
+  		for (var j = 0; j <word.lenght; j++) {
+  			//if the letter guessed is correct
+  			//at that point or index
+  			if (word[j] === guess) {
+  				//update answer array with letter
+  				//guessed at that point or index
+  				answerArray[j] = guess;
+  				//subtract one from remaining letters
+  				remainingLetters--;
+
+  			}
+  		}
+  	}
+  	// ***********************''End Game code loop*************
+  }
+  // let player know the word
+  alert(answerArray.join(" "));
+  //congratulate the player
+  alert("Well Done!" The asnwer was " + word");
+
+
+
+
+	
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
