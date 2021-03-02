@@ -1,1 +1,1 @@
-# easy.swedisch.lessons
+# easy.swedish.lessons
